@@ -39,13 +39,13 @@ dependencies {
     def kotlin_version = "1.9.22"
     def logback_version = "1.4.11"
 
-    implementation("io.ktor:ktor-server-auth-jvm")
+    implementation("io.ktor:ktor-server-auth-jvm") //权限判断
     implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-auth-jwt-jvm")
-    implementation("io.ktor:ktor-server-websockets-jvm")
-    implementation("io.ktor:ktor-server-html-builder-jvm")
+    implementation("io.ktor:ktor-server-auth-jwt-jvm") //jwt
+    implementation("io.ktor:ktor-server-websockets-jvm") //websocket
+    implementation("io.ktor:ktor-server-html-builder-jvm")//DSL构建html
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
-    implementation("io.ktor:ktor-serialization-gson-jvm")
+    implementation("io.ktor:ktor-serialization-gson-jvm") //json序列话
     implementation("io.ktor:ktor-server-netty-jvm") //netty
     implementation("io.ktor:ktor-server-status-pages") //错误页面
     implementation("io.ktor:ktor-server-call-logging")//日志
@@ -71,7 +71,7 @@ dependencies {
     implementation("io.insert-koin:koin-ktor:3.5.3") //依赖注入
 
     // https://mvnrepository.com/artifact/redis.clients/jedis
-    implementation("redis.clients:jedis:5.1.0")
+    implementation("redis.clients:jedis:5.1.0") //redis
 
 
 }

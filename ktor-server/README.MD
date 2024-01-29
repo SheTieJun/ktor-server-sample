@@ -88,7 +88,7 @@ application {
     mainClass.set("com.example.ApplicationKt")
 }
 shadowJar {
-    archiveBaseName.set('my-application')
+    archiveBaseName.set('ktor-application')
     archiveClassifier.set('')
     archiveVersion.set('')
 }

@@ -17,11 +17,9 @@ implementation("io.ktor:ktor-server-auth-jwt-jvm")
 ```
 
 <aside>
-💡 这里我们需要区分业务请求的Token和RefreshToken，在获取的时候你可以一些区分
-
+💡 这里我们需要区分业务请求的Token和RefreshToken，在获取的时候你可以一些区分,然后再不同路由处理添加对应限制,比如普通token和refreshToken
 </aside>
 
-然后再不同路由处理添加对应限制,比如
 
 ### 配置验证
 
