@@ -1,10 +1,10 @@
 package com.example
 
 import com.example.plugins.*
+import com.example.utils.ext.toJson
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import java.io.File
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -12,7 +12,8 @@ fun main() {
 }
 
 fun Application.module() {
-    configKoin() //依赖倒置：数据库等
+    val isDev = true //是否是测试环境
+    configKoin(isDev) //依赖倒置：数据库等
     configStaticResources() //HTML静态资源
     configureRateLimit() //速率限制
     configureSecurity() //安全处理,JWT

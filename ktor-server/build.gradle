@@ -77,7 +77,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveBaseName.set('ktor-application1')
+    archiveBaseName.set('ktor-application')
     archiveClassifier.set('')
     archiveVersion.set('')
 }

@@ -5,11 +5,13 @@
 3. 构建并标记镜像：
    > docker build -t my-application .
 4. 启动镜像：
-   > docker run -p 8080:8080 my-application
+   > docker run -p 8080:8080 --rm --name ktor-sample my-application
 
+![](构建运行过程.webp)
 
 ## 当前文件夹,已经有打包好的jar
 1. 构建并标记镜像：
    > docker build -t my-application . 
 2. 启动镜像：
-   > docker run -p 8080:8080 my-application
+   > docker run -p 8080:8080 --rm --name ktor-sample my-application
+   

@@ -91,7 +91,7 @@ implementation("redis.clients:jedis:5.1.0") //redis
 
 ### 1. 标准格式统一返回，保存错误code，Exception都统一返回异常
 
-添加插件`statuspages`
+添加插件：[status pages](https://ktor.io/docs/status-pages.html)
 
 ```groovy
 implementation("io.ktor:ktor-server-status-pages") //错误页面
@@ -128,8 +128,7 @@ install(StatusPages) {
 }
 ```
 
-### 2. [JWT实现](doc/JWT%E5%AE%9E%E7%8E%B0.MD)
+### 2. [JWT实现](doc/JWT%E5%AE%9E%E7%8E%B0.MD):相关文档[JSON Web Tokens](https://ktor.io/docs/3.0.0-beta-1/jwt.html)
 
 ### 3. 接口限制：[rate-limit](https://ktor.io/docs/rate-limit.html)
- 
 

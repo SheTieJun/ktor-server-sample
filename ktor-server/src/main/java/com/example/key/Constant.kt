@@ -14,4 +14,5 @@ object Constant {
     const val KEY_TOKEN = "token"
     const val PASSWORD = "password"
     const val REFRESH_TOKEN ="refreshToken"
+    const val DEBUG_IP = "127.0.0.1"
 }
