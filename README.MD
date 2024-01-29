@@ -9,8 +9,7 @@
 - JDK : Java 17
 - Gradle : 8.0
 - Docker :Win DockerDesktop+MySql+Redis+(ktor-application)
--
-Test：Postman,[测试案例](https://dev-jun.postman.co/workspace/Dev1~68c25709-3d9e-4260-897b-a9025e77c641/collection/17982394-68dc2b14-2a73-4d5a-88f1-107c928e0e75?action=share&creator=17982394)
+- Test：Postman,[测试案例](https://dev-jun.postman.co/workspace/Dev1~68c25709-3d9e-4260-897b-a9025e77c641/collection/17982394-68dc2b14-2a73-4d5a-88f1-107c928e0e75?action=share&creator=17982394)
 
 [**MySQL安装**](https://www.runoob.com/mysql/mysql-install.html)
 
@@ -26,12 +25,12 @@ Test：Postman,[测试案例](https://dev-jun.postman.co/workspace/Dev1~68c25709
 - **HTML**:静态资源、网页请求，基础功能实现
 - **API**:标准格式统一返回，错误code，Exception都统一返回异常，后续可以加入UA判断，web返回特定html,手机返回json
 - **Log**:logback日志记录
-- **Docker**:打包到docker ，[Alpine Linux](https://alpinelinux.org/)
+- **Docker**:打包到docker ，[Alpine Linux](https://alpinelinux.org/),[案例](docker)
 - **[rate Limit](https://ktor.io/docs/rate-limit.html)**:一定时间限制内api*限制访问次数
 
 ## 主要的库：
 
-- Ktor ：个轻量级、灵活且可扩展的 Kotlin Web 框架，适用于构建异步、非阻塞的 Web 应用程序和 API。
+- Ktor ：一个轻量级、灵活且可扩展的 Kotlin Web 框架，适用于构建异步、非阻塞的 Web 应用程序和 API。
 - Koin：依赖注入框架
 - exposed+mysql：exposed一个用于 Kotlin 的轻量级 ORM（对象关系映射）框架，用于与关系型数据库进行交互。它是一个基于类型安全的 DSL（领域特定语言），使得数据库操作变得简单而直观。
 - jedis:一个用于 Java 的流行的 Redis 客户端库，用于与 Redis 数据库进行交互。
