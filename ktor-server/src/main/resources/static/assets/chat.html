@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat</title>
+    <style>
+        .message {
+            clear: both;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .other {
+            background-color: #ddd;
+            float: left;
+        }
+        .self {
+            background-color: #aaf;
+            float: right;
+        }
+    </style>
+    <style>
+    #chatbox {
+        width: 60%;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+<div id="chatbox" >
+    <!-- 用于显示接收到的消息 -->
+</div>
+<!--position: fixed;bottom: 0; 底部-->
+<div style="display: flex; position: fixed;bottom: 0;align-items: center;">
+    <input type="text" id="message" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+
+<script>
+        // 创建一个WebSocket连接
+        var ws = new WebSocket("ws://127.0.0.1:8080/chat");
+
+        ws.onopen = function() {
+            console.log("Connected to the WebSocket server");
+        };
+
+        ws.onmessage = function(event) {
+            // 当收到消息时，在聊天框中显示
+            var chatbox = document.getElementById('chatbox');
+            var p = document.createElement('p');
+            p.classList.add('message', 'other');
+            p.textContent = event.data;
+            chatbox.appendChild(p);
+        };
+
+        function sendMessage() {
+            var message = document.getElementById('message').value;
+            var chatbox = document.getElementById('chatbox');
+            var p = document.createElement('p');
+            p.classList.add('message', 'self');
+            p.textContent = message;
+            chatbox.appendChild(p);
+            ws.send(message);  // 发送消息
+            document.getElementById('message').value = '';  // 清空输入框
+        }
+
+
+
+
+</script>
+</body>
+</html>

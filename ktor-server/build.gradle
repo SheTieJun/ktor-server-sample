@@ -1,0 +1,83 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass.set("com.example.ApplicationKt")
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+}
+
+buildscript {
+    //用来打包jar
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.github.johnrengelman:shadow:8.1.1'
+    }
+}
+
+
+dependencies {
+    def ktor_version = "2.3.7"
+    api platform("io.ktor:ktor-bom:$ktor_version")
+    def kotlin_version = "1.9.22"
+    def logback_version = "1.4.11"
+
+    implementation("io.ktor:ktor-server-auth-jvm")
+    implementation("io.ktor:ktor-server-core-jvm")
+    implementation("io.ktor:ktor-server-auth-jwt-jvm")
+    implementation("io.ktor:ktor-server-websockets-jvm")
+    implementation("io.ktor:ktor-server-html-builder-jvm")
+    implementation("io.ktor:ktor-server-content-negotiation-jvm")
+    implementation("io.ktor:ktor-serialization-gson-jvm")
+    implementation("io.ktor:ktor-server-netty-jvm") //netty
+    implementation("io.ktor:ktor-server-status-pages") //错误页面
+    implementation("io.ktor:ktor-server-call-logging")//日志
+    implementation("io.ktor:ktor-server-swagger-jvm")//swagger
+    implementation("io.ktor:ktor-server-cors")//跨域
+    implementation("io.ktor:ktor-client-cio") //客户端，用来请求其他服务
+    implementation("io.ktor:ktor-server-rate-limit")//限流
+    implementation("ch.qos.logback:logback-classic:$logback_version")
+    testImplementation("io.ktor:ktor-server-tests-jvm")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+
+    //数据库 https://github.com/JetBrains/Exposed
+    def exposed_version = "0.46.0"
+    def mysql_version = "8.0.33"
+    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
+    implementation("mysql:mysql-connector-java:$mysql_version") //mysql jdbc
+
+    //依赖倒置
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-ktor
+    implementation("io.insert-koin:koin-ktor:3.5.3") //依赖注入
+
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    implementation("redis.clients:jedis:5.1.0")
+
+
+}
+
+shadowJar {
+    archiveBaseName.set('ktor-application1')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+}

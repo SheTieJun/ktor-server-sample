@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+//apply from :"https://gist.githubusercontent.com/SheTieJun/c6ec3f8f058807cf2fc12f8d45d3b9c3/raw/e0ea600669ca2c8f899cd1d537afaa97ecc11947/buildTime.gradle"
+
+rootProject.name = "ktor-sample"
+
+
+include ':ktor-server'
