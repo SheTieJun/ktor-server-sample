@@ -1,5 +1,6 @@
 package com.example.plugins
 
+import com.example.utils.ext.viewport
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
@@ -25,6 +26,9 @@ fun Application.configureTemplating() {
                    function openChat(){
                       window.open("http://localhost:8080/static/chat.html")
                    }
+                   function openMarket(){
+                      window.open("mimarket://details?id=com.lizhiweike.lihuaedu")
+                   }
                    function callExternalFunction() {
                         fetch('/call-external-function')
                             .then(response => response.text())
@@ -44,11 +48,14 @@ fun Application.configureTemplating() {
                 """.trimIndent()
 
             call.respondHtml {
+                viewport()
                 body {
                     style = "text-align: center;"
                     script {
                         src = "https://cdn.jsdelivr.net/npm/marked/marked.min.js"
                     }
+
+
                     div {
                         id = "content"
                     }
@@ -71,6 +78,13 @@ fun Application.configureTemplating() {
                         onClick = "openChat()"
                         button {
                             +"Chat"
+                        }
+                    }
+                    //创建一个新div ,按钮打开
+                    div {
+                        onClick = "openMarket()"
+                        button {
+                            +"打开应用市场"
                         }
                     }
                     form(action = "/user/login",encType = FormEncType.multipartFormData, method = FormMethod.post) {

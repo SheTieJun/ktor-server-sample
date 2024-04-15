@@ -26,7 +26,7 @@ fun Application.configureProcessException() {
                 is IllegalArgumentException, is NullPointerException, is IllegalStateException, is BadRequestException ->{
                     call.respond(HttpStatusCode.OK, RespondResult.error(HttpStatusCode.BadRequest.value, cause.message ?: HttpStatusCode.BadRequest.description))
                 }
-                is TimeoutException -> call.respond(HttpStatusCode.OK, RespondResult.error(408, cause.message ?: HttpStatusCode.RequestTimeout.description))
+                is TimeoutException -> call.respond(HttpStatusCode.OK, RespondResult.error(HttpStatusCode.RequestTimeout.value, cause.message ?: HttpStatusCode.RequestTimeout.description))
                 is ArithmeticException -> call.respond(HttpStatusCode.OK, RespondResult.error(HttpStatusCode.Conflict.value, cause.message ?: HttpStatusCode.Conflict.description))
                 else -> call.respond(HttpStatusCode.OK, RespondResult.error(HttpStatusCode.InternalServerError.value, cause.message ?: HttpStatusCode.InternalServerError.description))
             }

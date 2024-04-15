@@ -1,14 +1,7 @@
 package com.example.key
 
-/**
- *
- * <b>@author：</b> shetj<br>
- * <b>@createTime：</b> 2024/1/23<br>
- * <b>@email：</b> 375105540@qq.com<br>
- * <b>@describe</b>  <br>
- */
 object Constant {
-    const val WLS_IP = "172.19.144.1" //WLS的IP的只
+    const val WLS_IP = "172.19.40.37" //WLS的IP，需要根据实际情况修改，ipconfig查看
     const val USER_ID = "userId"
     const val USER_NAME = "userName"
     const val KEY_TOKEN = "token"

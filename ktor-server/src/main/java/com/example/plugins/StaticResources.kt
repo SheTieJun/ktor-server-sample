@@ -6,6 +6,7 @@ import io.ktor.server.routing.routing
 
 fun Application.configStaticResources() {
     routing {
+        //http://localhost:8080/static/chat.html
         staticResources("/static","static/assets")
     }
 }

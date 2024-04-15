@@ -12,8 +12,8 @@ fun main() {
 }
 
 fun Application.module() {
-    val isDev = true //是否是测试环境
-    configKoin(isDev) //依赖倒置：数据库等
+    val isDev = false //是否是测试环境
+    configKoin(isDev) //依赖倒置：数据库、Redis、HttpClient等
     configStaticResources() //HTML静态资源
     configureRateLimit() //速率限制
     configureSecurity() //安全处理,JWT

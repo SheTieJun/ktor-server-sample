@@ -76,8 +76,10 @@ dependencies {
 
 }
 
+def data = new Date().format("YYYYMMdd")
+
 shadowJar {
     archiveBaseName.set('ktor-application')
     archiveClassifier.set('')
-    archiveVersion.set('')
+    archiveVersion.set(data)
 }
